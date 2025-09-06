@@ -38,7 +38,7 @@ const FeaturedListings = () => {
         </div>
 
         {/* Listings Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
           {currentListings.map((listing) => (
             <div key={listing.id} className="card-clean group cursor-pointer">
               <div className="aspect-[4/3] bg-muted rounded-md overflow-hidden mb-4">
