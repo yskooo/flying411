@@ -9,7 +9,7 @@ const FeaturedListings = () => {
   const currentListings = getListingsByCategory(activeTab);
 
   return (
-    <section id="featured" className="py-16 lg:py-24 bg-surface">
+    <section id="featured" className="py-12 lg:py-16 bg-surface" style={{ marginTop: '50px' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-display text-foreground mb-4">Featured Listings</h2>
@@ -38,7 +38,7 @@ const FeaturedListings = () => {
         </div>
 
         {/* Listings Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentListings.map((listing) => (
             <div key={listing.id} className="card-clean group cursor-pointer">
               <div className="aspect-[4/3] bg-muted rounded-md overflow-hidden mb-4">
@@ -51,37 +51,37 @@ const FeaturedListings = () => {
               
               <div className="space-y-3">
                 <div>
-                  <h3 className="text-subheading text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                     {listing.title}
                   </h3>
                   
-                  <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
-                    <span className="font-semibold text-foreground">{listing.price}</span>
-                    <div className="flex items-center space-x-4">
+                  <div className="space-y-2 mb-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-bold text-foreground">{listing.price}</span>
                       {listing.year && (
-                        <div className="flex items-center space-x-1">
+                        <div className="flex items-center space-x-1 text-sm text-muted-foreground">
                           <Calendar className="w-4 h-4" />
                           <span>{listing.year}</span>
                         </div>
                       )}
-                      <div className="flex items-center space-x-1">
-                        <MapPin className="w-4 h-4" />
-                        <span>{listing.location}</span>
-                      </div>
+                    </div>
+                    <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+                      <MapPin className="w-4 h-4" />
+                      <span>{listing.location}</span>
                     </div>
                   </div>
                   
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
                     {listing.description}
                   </p>
                 </div>
                 
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <button className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors">
-                    <span className="font-medium">View Details</span>
+                <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-border">
+                  <button className="flex items-center justify-center space-x-2 text-primary hover:text-primary/80 transition-colors w-full sm:w-auto">
+                    <span className="font-medium text-sm">View Details</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
-                  <button className="btn-accent flex items-center space-x-2">
+                  <button className="btn-accent flex items-center justify-center space-x-2 text-sm px-4 py-2 w-full sm:w-auto">
                     <Phone className="w-4 h-4" />
                     <span>Contact</span>
                   </button>
